@@ -13,15 +13,15 @@ import { FaChevronDown } from "react-icons/fa";
 function NavBar() {
   return (
     <div
-      className="container py-7 px-10 
-    mx-auto w-full
+      className="container py-7 px-10 absolute
+    mx-auto w-full z-50
      max-w-[1920px] text-white"
     >
-      <nav className="bg-transparent flex justify-between items-center">
+      <nav className=" flex justify-between items-center">
         <div className="flex items-center gap-x-4">
           {/* icon */}
           <Link href={""}>
-            <h1 className="text-white uppercase m-0 text-2xl xl:text-[2.7rem] text-nowrap ">
+            <h1 className="text-white  uppercase m-0 text-2xl xl:text-[2.7rem] text-nowrap ">
               next-coffee
             </h1>
           </Link>
@@ -29,8 +29,9 @@ function NavBar() {
             <Input
               type="search"
               placeholder="search..."
-              className=" focus:border-red-400"
+              className="border-red-400 searchInput"
               variant="underlined"
+           
             />
             <IoSearch className="text-2xl absolute top-2 right-0" />
           </div>
