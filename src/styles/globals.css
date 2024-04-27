@@ -428,3 +428,13 @@ select.form-control:focus::-ms-value {
 .input-group-append {
   margin-left: -1px;
 }
+.reservation,
+.page-header,
+.offer,
+.footer {
+  background: linear-gradient(rgba(51, 33, 29, 0.9), rgba(51, 33, 29, 0.9)),
+    url(/images/bg.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

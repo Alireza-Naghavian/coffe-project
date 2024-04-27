@@ -5,19 +5,19 @@ import { Badge } from "@nextui-org/react";
 function ProductCard() {
   return (
     <div className="container mx-auto px-20 mt-32">
-      <div class="section-title">
+      <div className="section-title">
         <h4
-          class="text-primary uppercase text-4xl"
+          className="text-primary uppercase text-4xl"
           style={{ letterSpacing: "5px" }}
         >
           Menu &amp; Pricing
         </h4>
-        <h1 class="text-[2.7rem] text-center font-bold">Competitive Pricing</h1>
+        <h1 className="text-[2.7rem] text-center font-bold">Competitive Pricing</h1>
       </div>
       <div className="grid grid-cols-2 gap-6">
         {/* hot coffee */}
         <div className="grid grid-cols-1 gap-y-8">
-        <h1 class="mb-5 text-4xl font-bold">Hot Coffee</h1>
+        <h1 className="mb-5 text-4xl font-bold">Hot Coffee</h1>
         <Card className="border-none bg-transparent shadow-none max-w-[610px]">
             <CardBody>
               <div className="grid grid-cols-6 md:grid-cols-12 gap-6 md:gap-4 items-center justify-center">
@@ -62,7 +62,7 @@ function ProductCard() {
         </div>
         {/* cold coffee */}
         <div className="grid grid-cols-1 gap-y-8">
-        <h1 class="mb-5 text-4xl font-bold">Cold Coffee</h1>
+        <h1 className="mb-5 text-4xl font-bold">Cold Coffee</h1>
 
         <Card className="border-none bg-transparent shadow-none max-w-[610px]">
             <CardBody>
