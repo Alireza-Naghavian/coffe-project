@@ -31,4 +31,15 @@
   background: rgba(51, 33, 29, 0.7);
   z-index: 1;
 }
+.testimonial_slider_Wrapper{
+  width: 100% !important;
+  margin: 0px auto;
+}
+.testimonial_slider{
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  
+}
 
