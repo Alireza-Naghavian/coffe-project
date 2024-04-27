@@ -26,6 +26,7 @@ body {
   color: #555555;
   text-align: left;
   position: relative !important;
+  background: #da9f5b4e;
 }
 
 @layer utilities {
