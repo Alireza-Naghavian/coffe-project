@@ -5,17 +5,28 @@ import Reservation from "@/components/template/Reservation";
 import Services from "@/components/template/Services";
 import HomePage from "@/components/template/Slider";
 import Testimonial from "@/components/template/Testimonial";
+import axios from "axios";
 
-export default function Home() {
+export default function Home({ services }) {
   return (
     <>
       <HomePage />
       <About />
-      <Services />
+      <Services services={services} />
       <Offer />
       <ProductCard />
-      <Reservation/>
-      <Testimonial/>
+      <Reservation />
+      <Testimonial />
     </>
   );
+}
+export async function getStaticProps() {
+  const { data: services } = await axios.get("http://localhost:4000/services");
+
+  return {
+    props: {
+      services,
+    },
+    revalidate: 60 * 60 * 12,
+  };
 }
