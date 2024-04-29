@@ -10,7 +10,10 @@ import {
   Button,
 } from "@nextui-org/react";
 import { FaChevronDown } from "react-icons/fa";
+import { useRouter } from "next/router";
 function NavBar() {
+  const { pathname } = useRouter();
+  console.log(pathname);
   return (
     <div
       className="container py-7 px-10 absolute
@@ -20,7 +23,7 @@ function NavBar() {
       <nav className=" flex justify-between items-center">
         <div className="flex items-center gap-x-4">
           {/* icon */}
-          <Link href={""}>
+          <Link href={"/"}>
             <h1 className="text-white  uppercase m-0 text-2xl xl:text-[2.7rem] text-nowrap ">
               next-coffee
             </h1>
@@ -31,7 +34,6 @@ function NavBar() {
               placeholder="search..."
               className="border-red-400 searchInput"
               variant="underlined"
-           
             />
             <IoSearch className="text-2xl absolute top-2 right-0" />
           </div>
@@ -42,22 +44,40 @@ function NavBar() {
         <div className="flex items-center ">
           <ul className="w-full flex items-center child-hover:text-primary  gap-x-10 child:text-lg child:font-bold">
             <li>
-              <Link className="tr-300" href={""}>
+              <Link
+                className={`tr-300 ${pathname === "/" ? "text-primary" : ""} `}
+                href={"/"}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link className="tr-300" href={""}>
+              <Link
+                className={`tr-300 ${
+                  pathname === "/about" ? "text-primary" : ""
+                } `}
+                href={"/about"}
+              >
                 About
               </Link>
             </li>
             <li>
-              <Link className="tr-300" href={""}>
+              <Link
+                className={`tr-300 ${
+                  pathname === "/services" ? "text-primary" : ""
+                } `}
+                href={"/services"}
+              >
                 Services
               </Link>
             </li>
             <li>
-              <Link className="tr-300" href={""}>
+              <Link
+                className={`tr-300 ${
+                  pathname === "/menu" ? "text-primary" : ""
+                } `}
+                href={"/menu"}
+              >
                 Menu
               </Link>
             </li>
@@ -86,16 +106,23 @@ function NavBar() {
                   aria-label="Action event example"
                 >
                   <DropdownItem className="!hover:bg-primary-100">
-                    Reservation
+                    <Link href={"/reservation"}> Reservation</Link>
                   </DropdownItem>
                   <DropdownItem className="!hover:bg-primary-100">
-                    Testimonial
+                    <Link href={"/testimonial"}>Testimonial</Link>
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </li>
             <li>
-              <Link href={""}>Contact</Link>
+              <Link
+                className={`tr-300 ${
+                  pathname === "/contact" ? "text-primary" : ""
+                } `}
+                href={"/contact"}
+              >
+                Contact
+              </Link>
             </li>
           </ul>
         </div>

@@ -1,9 +1,13 @@
 import React from 'react'
-
-function About() {
+import About from '@/components/template/About'
+import HeaderPage from '@/components/sharedUi/HeaderPage'
+function AboutPage() {
   return (
-    <div>About</div>
+    <>
+    <HeaderPage route={"about"}/>
+    <About/>
+    </>
   )
 }
 
-export default About
+export default AboutPage

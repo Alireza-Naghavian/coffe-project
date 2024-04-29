@@ -1,9 +1,24 @@
+import HeaderPage from '@/components/sharedUi/HeaderPage'
+import Services from '@/components/template/Services'
+import axios from 'axios'
 import React from 'react'
 
-function Services() {
+function ServicesPage({services}) {
   return (
-    <div>Services</div>
+   <>
+   <HeaderPage route={"services"}/>
+   <Services services={services} />
+   </>
   )
 }
+export async function getStaticProps(){
+  
+  const {data:services}= await axios.get("http://localhost:4000/services");
 
-export default Services
+  return{
+props:{
+services
+}
+  }
+}
+export default ServicesPage
