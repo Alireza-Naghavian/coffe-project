@@ -18,7 +18,6 @@ function Services({ services }) {
       <div className="grid grid-cols-2 gap-6">
         {services &&
           services.map((service) => {
-            console.log(service);
             return (
               <Card
                 key={service.id}
