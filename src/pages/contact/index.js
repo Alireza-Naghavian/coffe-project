@@ -1,8 +1,14 @@
+import HeaderPage from '@/components/sharedUi/HeaderPage'
+import ContactDetail from '@/components/template/ContactDetail'
 import React from 'react'
 
 function ContactPage() {
   return (
-    <div>ContactPage</div>
+    <>
+    <HeaderPage route={"contact"}/> 
+    <ContactDetail/>
+    </>
+
   )
 }
 

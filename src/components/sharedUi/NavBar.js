@@ -13,7 +13,6 @@ import { FaChevronDown } from "react-icons/fa";
 import { useRouter } from "next/router";
 function NavBar() {
   const { pathname } = useRouter();
-  console.log(pathname);
   return (
     <div
       className="container py-7 px-10 absolute
@@ -105,11 +104,16 @@ function NavBar() {
                   }}
                   aria-label="Action event example"
                 >
-                  <DropdownItem className="!hover:bg-primary-100">
-                    <Link href={"/reservation"}> Reservation</Link>
+                  <DropdownItem className=" w-full relative !hover:bg-primary-100">
+                    <Link className="w-full flex" href={"/reservation"}>
+                      {" "}
+                      Reservation
+                    </Link>
                   </DropdownItem>
-                  <DropdownItem className="!hover:bg-primary-100">
-                    <Link href={"/testimonial"}>Testimonial</Link>
+                  <DropdownItem className=" w-full relative !hover:bg-primary-100">
+                    <Link className="w-full flex" href={"/testimonial"}>
+                      Testimonial
+                    </Link>
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
