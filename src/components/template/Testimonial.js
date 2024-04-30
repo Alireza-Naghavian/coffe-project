@@ -1,8 +1,9 @@
 import React from "react";
 import TestimonialItem from "../sharedUi/TestimonialItem";
-import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "@/styles/Slider.module.css";
-function Testimonial() {
+import { useRouter } from "next/router";
+function Testimonial({ comments }) {
+  const { pathname } = useRouter();
   return (
     <div className=" container mx-auto py-5 mt-12 px-20">
       <div className=" ">
@@ -18,20 +19,31 @@ function Testimonial() {
           </h1>
         </div>
         <div className="owl-carousel testimonial-carousel">
-          <Swiper loop={true} autoplay={true} className={styles.testimonial_slider_Wrapper}>
-            <SwiperSlide className={styles.testimonial_slider}>
-              <TestimonialItem />
-            </SwiperSlide>
-            <SwiperSlide className={styles.testimonial_slider}>
-              <TestimonialItem />
-            </SwiperSlide>
-            <SwiperSlide className={styles.testimonial_slider}>
-              <TestimonialItem />
-            </SwiperSlide>
-            <SwiperSlide className={styles.testimonial_slider}>
-              <TestimonialItem />
-            </SwiperSlide>
-          </Swiper>
+          <swiper-container  className={styles.testimonial_slider_Wrapper}>
+            {pathname === "/testimonial"
+              ? comments?.slice(0, 3).map((comment,index) => {
+                  return (
+                    <swiper-slide
+                      key={comment.id}
+                      virtualIndex={index}
+                      className={styles.testimonial_slider}
+                    >
+                      <TestimonialItem comment={comment} />
+                    </swiper-slide>
+                  );
+                })
+              : comments.map((comment,index) => {
+                  return (
+                    <swiper-slide
+                    virtualIndex={index}
+                      key={comment?.id}
+                      className={styles.testimonial_slider}
+                    >
+                      <TestimonialItem comment={comment} />
+                    </swiper-slide>
+                  );
+                })}
+          </swiper-container>
         </div>
       </div>
     </div>
