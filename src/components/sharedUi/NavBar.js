@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Input } from "@nextui-org/react";
 import { IoSearch } from "react-icons/io5";
@@ -12,8 +12,21 @@ import {
 import { FaChevronDown } from "react-icons/fa";
 import { useRouter } from "next/router";
 function NavBar() {
+  const { query, push } = useRouter();
   const { pathname } = useRouter();
-  console.log(pathname);
+  const [search, setSearch] = useState(query?.q);
+  const searchClickHandler = () => {
+    if (search && search.trim()) {
+      push(`/search?q=${search}`);
+    }
+  };
+  const searchEnterHandler = (e) => {
+    if (e.keyCode === 13) {
+      if (search && search.trim()) {
+        push(`/search?q=${search}`);
+      }
+    }
+  };
   return (
     <div
       className="container py-7 px-10 absolute
@@ -30,12 +43,19 @@ function NavBar() {
           </Link>
           <div className="relative  w-full mb-3">
             <Input
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+              onKeyDown={searchEnterHandler}
               type="search"
               placeholder="search..."
-              className="border-red-400 searchInput"
+              className="border-red-400  !text-white searchInp"
+              classNames={["!text-white "]}
               variant="underlined"
             />
-            <IoSearch className="text-2xl absolute top-2 right-0" />
+            <IoSearch
+              onClick={searchClickHandler}
+              className="text-2xl absolute top-2 right-0"
+            />
           </div>
         </div>
 
@@ -105,11 +125,15 @@ function NavBar() {
                   }}
                   aria-label="Action event example"
                 >
-                  <DropdownItem className="!hover:bg-primary-100">
-                    <Link href={"/reservation"}> Reservation</Link>
+                  <DropdownItem className=" w-full relative !hover:bg-primary-100">
+                    <Link className="w-full flex" href={"/reservation"}>
+                      Reservation
+                    </Link>
                   </DropdownItem>
-                  <DropdownItem className="!hover:bg-primary-100">
-                    <Link href={"/testimonial"}>Testimonial</Link>
+                  <DropdownItem className=" w-full relative !hover:bg-primary-100">
+                    <Link className="w-full flex" href={"/testimonial"}>
+                      Testimonial
+                    </Link>
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
