@@ -26,7 +26,7 @@ function ProductCard({ coffee }) {
             <div className="flex justify-between items-start">
               <div className="flex flex-col gap-0">
                 <h3 className="font-semibold text-foreground/90 flex  items-center gap-x-2">
-                  <Link className="text-lg border-b border-b-primary" href="">
+                  <Link  className="text-lg border-b border-b-primary" href={`/products/${coffee.id}`}>
                     {coffee.title}
                   </Link>
                 </h3>
